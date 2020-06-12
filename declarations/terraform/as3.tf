@@ -34,7 +34,6 @@ output "file_list" {
 
 resource "null_resource" "example2" {
   provisioner "local-exec" {
-    command = "Get-Date"
-    interpreter = ["PowerShell", "-Command"]
+    command = "echo date"
   }
 }
