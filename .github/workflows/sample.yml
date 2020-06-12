@@ -24,18 +24,18 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: get list of changed files
-      id: files
-      uses: jitterbit/get-changed-files@v1
+    # - name: get list of changed files
+    #   id: files
+    #   uses: jitterbit/get-changed-files@v1
 
     # Runs a set of commands using the runners shell
-    - name: Echo list of files
-      run: |
-        echo "This is the list = ${{ steps.files.output.all }}"
+    # - name: Echo list of files
+    #   run: |
+    #     echo "This is the list = ${{ steps.files.output.all }}"
 
     - id: files
       uses: jitterbit/get-changed-files@v1
     - run: |
-    for changed_file in ${{ steps.files.outputs.all }}; do
-      echo "Do something with this ${changed_file}."
-    done
+        for changed_file in ${{ steps.files.outputs.all }}; do
+          echo "Do something with this ${changed_file}."
+        done
