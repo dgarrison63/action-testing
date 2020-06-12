@@ -34,7 +34,7 @@ output "file_list" {
 */
 
 resource "null_resource" "example2" {
-  for_each = var.file_list
+  for_each = toset(var.file_list)
   provisioner "local-exec" {
     command = "Get-Date"
     interpreter = ["PowerShell", "-Command"]
