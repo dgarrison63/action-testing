@@ -44,19 +44,19 @@ jobs:
     - name: show the output
       run:  echo "This is the list - again ${{ steps.files.outputs.all }}" 
 
-      - name: 'Terraform Setup'
-        uses: hashicorp/setup-terraform@v1
+    - name: 'Terraform Setup'
+      uses: hashicorp/setup-terraform@v1
  #       with:
  #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-      - name: 'Terraform Init'
-        run: terraform init ./declarations/terraform
+    - name: 'Terraform Init'
+      run: terraform init ./declarations/terraform
 
  #     - name: 'Terraform Format'
  #       run: terraform fmt -check ./declarations/terraform
 
-      - name: 'Terraform Plan'
-        run: terraform plan -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} ./declarations/terraform
+    - name: 'Terraform Plan'
+      run: terraform plan -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} ./declarations/terraform
 
-      - name: 'Terraform Apply'
-        run: terraform apply -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} --auto-approve ./declarations/terraform
+    - name: 'Terraform Apply'
+      run: terraform apply -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} --auto-approve ./declarations/terraform
