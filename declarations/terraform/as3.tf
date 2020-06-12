@@ -6,7 +6,7 @@ If a copy of the MPL was not distributed with this file, You can obtain one at h
 
 terraform {
   required_providers {
-    bigip = "=1.2.0"
+    bigip = "~>1.2.0"
   }
 }
 
@@ -25,6 +25,6 @@ resource "bigip_as3" "as3_example" {
 }
 */
 
-output "file_list {
+output "file_list" {
   value = var.file_list
 }
