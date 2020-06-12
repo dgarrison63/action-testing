@@ -13,7 +13,6 @@ terraform {
 
 */
 
-/*
 provider "bigip" {
   address = "b3f01d41-3618-476c-a94f-3a9be92120e9.access.udf.f5.com"
   username = "admin"
@@ -21,7 +20,7 @@ provider "bigip" {
 }
 
 // config_name is used to set the identity of as3 resource which is unique for resource.
-
+/*
 resource "bigip_as3" "as3_example" {
   as3_json = file("as3.json")
  #config_name = "myconfig"
@@ -34,7 +33,6 @@ output "file_list" {
 */
 
 resource "null_resource" "example2" {
-  for_each = toset(var.file_list)
   provisioner "local-exec" {
     command = "Get-Date"
     interpreter = ["PowerShell", "-Command"]
