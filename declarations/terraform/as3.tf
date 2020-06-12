@@ -10,7 +10,7 @@ terraform {
   }
 }
 
-
+/*
 provider "bigip" {
   address = "b3f01d41-3618-476c-a94f-3a9be92120e9.access.udf.f5.com"
   username = "admin"
@@ -22,4 +22,9 @@ provider "bigip" {
 resource "bigip_as3" "as3_example" {
   as3_json = file("as3.json")
  #config_name = "myconfig"
+}
+*/
+
+output "file_list {
+  value = var.file_list
 }
