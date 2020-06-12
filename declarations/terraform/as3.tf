@@ -10,7 +10,6 @@ terraform {
     terraform-providers/bigip = "~> 1.2.0"
   }
 }
-
 */
 
 provider "bigip" {
@@ -26,14 +25,15 @@ resource "bigip_as3" "as3_example" {
  #config_name = "myconfig"
 }
 */
+
 /*
 output "file_list" {
   value = var.file_list
 }
 */
 
-resource "null_resource" "example2" {
+resource "null_resource" "example3" {
   provisioner "local-exec" {
-    command = "echo date"
+    command = "echo `date`"
   }
 }
