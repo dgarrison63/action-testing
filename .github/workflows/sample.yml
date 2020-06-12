@@ -40,3 +40,6 @@ jobs:
           echo "Do something with this ${changed_file}."
         done
         echo "This is the list ${{ steps.files.outputs.all }}"
+
+    - name: show the output
+      run:  echo "This is the list - again ${{ steps.files.outputs.all }}" 
