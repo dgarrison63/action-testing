@@ -7,7 +7,7 @@ If a copy of the MPL was not distributed with this file, You can obtain one at h
 
 terraform {
   required_providers {
-    terraform-providers/bigip = "~> 1.2.0"
+    bigip = "~> 1.2.0"
   }
 }
 
