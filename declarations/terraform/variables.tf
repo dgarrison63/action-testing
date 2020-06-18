@@ -1,2 +1,4 @@
 variable "password" { }
-variable "file_list" { }
+variable "file_list" { 
+    type = list(string)
+}
