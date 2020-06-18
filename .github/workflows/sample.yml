@@ -43,22 +43,26 @@ jobs:
         done
         echo "This is the list ${{ steps.files.outputs.all }}"
 
+    - name: create list of strings
+      id: list
+      run: echo ::set-output name=file_list::'"${{ steps.files.outputs.all }}"'
+
     - name: show the output
-      run:  echo "This is the list - again ${{ steps.files.outputs.all }}" 
+      run:  echo "This is the list - again ${{ steps.list.outputs.file_list }}" 
 
-    - name: 'Terraform Setup'
-      uses: hashicorp/setup-terraform@v1
-      with:
-        terraform_version: 0.12.26
+#     - name: 'Terraform Setup'
+#       uses: hashicorp/setup-terraform@v1
+#       with:
+#         terraform_version: 0.12.26
         
-    - name: 'Terraform Init'
-      run: terraform init ./declarations/terraform
+#     - name: 'Terraform Init'
+#       run: terraform init ./declarations/terraform
 
- #     - name: 'Terraform Format'
- #       run: terraform fmt -check ./declarations/terraform
+#  #     - name: 'Terraform Format'
+#  #       run: terraform fmt -check ./declarations/terraform
 
-    - name: 'Terraform Plan'
-      run: terraform plan -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} ./declarations/terraform
+#     - name: 'Terraform Plan'
+#       run: terraform plan -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} ./declarations/terraform
 
-    - name: 'Terraform Apply'
-      run: terraform apply -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} --auto-approve ./declarations/terraform
+#     - name: 'Terraform Apply'
+#       run: terraform apply -var 'password=${{ secrets.bigip_password }}' -var file_list=${{ steps.files.outputs.all }} --auto-approve ./declarations/terraform
