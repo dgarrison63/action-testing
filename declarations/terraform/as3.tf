@@ -18,7 +18,7 @@ provider "bigip" {
   password = var.password
 }
 
-// config_name is used to set the identity of as3 resource which is unique for resource.
+//config_name is used to set the identity of as3 resource which is unique for resource.
 
 resource "bigip_as3" "as3_example" {
   for_each = toset(var.file_list)
