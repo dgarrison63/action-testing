@@ -26,14 +26,14 @@ resource "bigip_as3" "as3_example" {
 }
 */
 
-/*
-output "file_list" {
-  value = var.file_list
-}
-*/
 
-resource "null_resource" "example3" {
-  provisioner "local-exec" {
-    command = "echo `date`"
-  }
+output "file_list" {
+  value = toset(var.file_list)
 }
+
+
+# resource "null_resource" "example3" {
+#   provisioner "local-exec" {
+#     command = "echo `date`"
+#   }
+# }
