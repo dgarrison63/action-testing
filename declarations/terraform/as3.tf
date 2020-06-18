@@ -22,7 +22,7 @@ provider "bigip" {
 
 resource "bigip_as3" "as3_example" {
   for_each = toset(var.file_list)
-  as3_json = "as3.json"
+  as3_json = file("as3.json")
 }
 
 
