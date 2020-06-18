@@ -45,10 +45,10 @@ jobs:
 
     - name: create list of strings
       id: list
-      run: echo ::set-output name=file_list::'"${{ steps.files.outputs.all }}"'
+      run: echo ::set-output name=file_list::'"[${{ steps.files.outputs.all }}]"'
 
     - name: show the output
-      run:  echo "This is the list - again ${{ steps.list.outputs.file_list }}" 
+      run:  echo "This is the list of strings ${{ steps.list.outputs.file_list }}" 
 
 #     - name: 'Terraform Setup'
 #       uses: hashicorp/setup-terraform@v1
