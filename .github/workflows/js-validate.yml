@@ -36,4 +36,5 @@ jobs:
     - name: Validate javascript
       id: javascript
       uses: focrensh/as3_schema_validator@master
-      with: ${{matrix.files}}
+      with: 
+        declaration: ${{matrix.files}}
